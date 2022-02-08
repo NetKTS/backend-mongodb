@@ -30,3 +30,17 @@ exports.SearchParking = async(req, res) =>{
     })
     return finalresult
 }
+exports.DeleteParking = async(req, res) =>{
+    const result = await ParkingModel.findOne({id: req.params.id})
+    const doc = await ParkingModel.deleteOne(result)
+
+    return doc
+}
+
+exports.UpdateParking = async(req, res) => {
+    console.log(req);
+    const edit = await ParkingModel.findOne({id: req.params.id})
+    edit.name = req.body.name;
+    edit.description = req.body.description;
+    edit.save();
+}

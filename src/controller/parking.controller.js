@@ -21,3 +21,13 @@ exports.SearchParking = async (req, res) => {
 
     return res.status(200).json({ data: Parking})
 }
+exports.DeleteParking = async (req, res) => {
+    const Parking = await ParkingService.DeleteParking(req)
+
+    return res.status(200).json({ data: Parking})
+}
+exports.UpdateParking = async (req, res) =>{
+    const Parking = await ParkingService.UpdateParking(req)
+
+    return res.status(200).json({ data: Parking})
+}
